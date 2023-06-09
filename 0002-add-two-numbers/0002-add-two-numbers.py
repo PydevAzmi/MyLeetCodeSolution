@@ -15,6 +15,8 @@ class Solution(object):
             first = first.next
             i += 1
         return num
+    
+
 
     def num2list(self, num):
         if num == 0:
