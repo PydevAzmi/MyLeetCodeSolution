@@ -1,4 +1,4 @@
-```
+```python
 class Solution(object):
 def shortestPathBinaryMatrix(self, grid):
 """
@@ -24,3 +24,4 @@ if grid[0][0] or grid[-1][-1]:
 return -1
 else:
 nodes_visited = 1
+i = 0
