@@ -6,6 +6,6 @@ class Solution(object):
         :rtype: str
         """
         result = [None] * len(s)
-        for i, letter in enumerate(s):
-            result[indices[i]] =  letter
+        for i, index in enumerate(indices):
+            result[index] =  s[i]
         return "".join(result)
