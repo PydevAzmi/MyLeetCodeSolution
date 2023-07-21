@@ -6,4 +6,5 @@ class Solution(object):
         :rtype: str
         """
         re = bin(int(a,2) + int(b,2))
-        return re[re.index('b')+1:]
+        b_idx = re.index('b')+1
+        return re[b_idx:]
