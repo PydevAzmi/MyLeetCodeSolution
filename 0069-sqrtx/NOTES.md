@@ -6,6 +6,6 @@ def mySqrt(self, x):
 :rtype: int
 """
 for i in range(x//2+2):
-if x in range(i*i, (i+1)*(i+1)):
+if i * i <= x < (i+1)*(i+1):
 return i
 ```
