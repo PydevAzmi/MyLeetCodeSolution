@@ -19,13 +19,12 @@ class Solution:
         # First recur on left subtree
         self.in_order(root.left)
         if self.max_depth < self.depth:
-            self.my_dict = {}
-            self.my_dict[root.val] = self.depth
+            self.my_dict = (root.val)
             self.max_depth = self.depth
             
         # Then recur on right subtree
         self.in_order(root.right)
         self.depth -= 1 
 
-        return max(self.my_dict)
+        return self.my_dict
     
