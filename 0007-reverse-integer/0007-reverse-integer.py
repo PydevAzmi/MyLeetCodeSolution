@@ -3,12 +3,16 @@ class Solution(object):
         """
         :type x: int
         :rtype: int
+         # result = int("".join([s for s in str(x)[:0:-1]]))*-1
         """
-        if abs(x) > 2 ** 31 - 1:
-            return 0
-        
-        if x>=0:
-            result = int("".join([s for s in str(x)[::-1]]))
-        else:
-            result = int("".join([s for s in str(x)[:0:-1]]))*-1
-        return result if abs(result) <= 2 ** 31 - 1 else 0
+        if abs(x) <= 2 ** 31 - 1:
+            i = 1
+            result = 0
+            if x < 0:
+                i = -1
+            x = abs(x)
+            while x > 0: 
+                result = result * 10 + x % 10 
+                x //= 10
+            return result*i if abs(result) <= 2 ** 31 - 1 else 0
+        return 0
