@@ -4,6 +4,9 @@ class Solution(object):
         :type x: int
         :rtype: int
         """
+        if abs(x) > 2 ** 31 - 1:
+            return 0
+        
         if x>=0:
             result = int("".join([s for s in str(x)[::-1]]))
         else:
