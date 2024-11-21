@@ -5,22 +5,37 @@ class Solution:
 
         updated_cells = [[0] * n for _ in range(m)]
         
-       
         for x, y in guards:  
             updated_cells[x][y] = 1    
         for x, y in walls:
             updated_cells[x][y] = 1
             
-        dirs = [(-1, 0),(0,-1),(1,0),(0,1)]
-        for gx, gy in guards:
-            for dx, dy in dirs: 
-                x, y = gx, gy
-                while True:
-                    x += dx
-                    y += dy
-                    if x < 0 or x >= m or y < 0 or y >= n or updated_cells[x][y] == 1:
-                        break
-                    updated_cells[x][y] = -1
+        for (x,y) in guards:
+            # down
+            for i in range(x+1, m):
+                if updated_cells[i][y] == 1:
+                    break
+                updated_cells[i][y] = -1
+
+            # up 
+            for i in range(x-1, -1,-1):
+                if updated_cells[i][y] == 1:
+                    break
+                updated_cells[i][y] = -1
+
+            # rigth
+            for i in range(y+1, n):
+                if updated_cells[x][i] == 1:
+                    break
+                updated_cells[x][i] = -1
+
+            # left 
+            for i in range(y-1,-1,-1):
+                if updated_cells[x][i] == 1:
+                    break
+                updated_cells[x][i] = -1
+            
+
         for r in updated_cells:
             counter += r.count(0)
         return counter
